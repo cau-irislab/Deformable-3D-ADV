@@ -482,31 +482,26 @@
 
       <div class="method-block">
         <strong>① Source Cage Generation</strong><br>
-        Addresses excessive temporal deformation span by partitioning the sequence into K localized
-        temporal groups, each assigned to an independent canonical Gaussian set. A global warm-up stage
-        first establishes a sequence-level prior, which is then cloned into K group-specific canonical sets.
-        Since each set covers only a restricted temporal segment, the deformation network operates over a
-        reduced motion range, mitigating over-smoothing and improving per-frame fidelity.
+        We first construct a source cage that encloses the source point cloud by initializing a rough cage from a
+        regular icosahedron and progressively refining it to better fit the underlying geometry. An encoder–decoder
+        refinement network predicts per-vertex offsets from the source point cloud feature, allowing the cage to align
+        more faithfully with the shape while providing a stable control structure for subsequent deformation.
       </div>
 
       <div class="method-block">
         <strong>② Adversarial Cage Generation</strong><br>
-        Corrects the geometry-driven bias of conventional isotropic densification under mesh supervision.
-        Instead of inserting primitives at face centroids with isotropic scales, SAAD derives the initial
-        covariance of each new Gaussian from the eigendecomposition of local face vertex covariance,
-        aligning its tangent-plane support with the local surface structure. This turns densification from
-        a purely coverage-seeking operation into a surface-aligned refinement process, improving both
-        geometric coverage and mesh accuracy.
+        To generate adversarial deformation, we predict adversarial cage displacements by jointly encoding the
+        source and target point clouds and fusing their geometric features. The resulting feature representation
+        is decoded into cage-vertex displacements, producing an adversarial cage that guides the source shape
+        toward target-aligned yet semantically consistent deformation patterns.
       </div>
 
       <div class="method-block">
         <strong>③ Deformable 3D Point Cloud Perturbations</strong><br>
-        Recovers the fine-scale appearance capacity attenuated by strong surface supervision. Built on top
-        of the geometry-stabilized base, RBER employs two sequential residual stages: a 3D Gaussian
-        deformation residual network (<em>f<sub>DR</sub></em>) that applies local parameter corrections to each
-        Gaussian, followed by a 2D image residual branch using a Local Texture Estimator (<em>f<sub>LTE</sub></em>)
-        that recovers remaining high-frequency texture discrepancy. This restores appearance details
-        without compromising the geometric consistency established by MCDM and SAAD.
+        Given the adversarial cage, we compute point-wise perturbations by measuring the geometric relationship
+        between each source point and cage vertices through solid-angle and distance-aware weights. Each point
+        is then displaced by a weighted combination of cage-vertex motions, yielding globally coherent, visually
+        plausible deformations that preserve object identity while effectively misleading the classifier.
       </div>
     </div>
   </div>
