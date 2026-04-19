@@ -367,56 +367,16 @@
     </div>
   </div>
 </section>
-
-<!-- ─── Cage-Guided Point Deformation ───────────────────────────────────── -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Cage-Guided Point Deformation</h2>
-    <p class="has-text-centered" style="margin-bottom: 2rem; color: #555;">
-      These videos visualize how cage deformation drives the deformation of the source point cloud.
-      As the cage progressively changes, the enclosed points move accordingly, producing smooth and
-      globally coherent adversarial shape deformation.
-    </p>
-
-    <div class="columns is-multiline video-grid">
-      <div class="column is-half has-text-centered">
-        <p class="video-label">Airplane → Rocket</p>
-        <video autoplay controls muted loop width="100%">
-          <source src="static/videos/cage/cage_video1.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <div class="column is-half has-text-centered">
-        <p class="video-label">Chair → Cap</p>
-        <video autoplay controls muted loop width="100%">
-          <source src="static/videos/cage/cage_video2.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <div class="column is-half has-text-centered">
-        <p class="video-label">Vase → Bottle</p>
-        <video autoplay controls muted loop width="100%">
-          <source src="static/videos/cage/cage_video3.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <div class="column is-half has-text-centered">
-        <p class="video-label">Vase → Bowl</p>
-        <video autoplay controls muted loop width="100%">
-          <source src="static/videos/cage/cage_video4.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
-  </div>
-</section>
   
 <!-- ─── Video Results ────────────────────────────────────────────────────── -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Video Results</h2>
+
+    <!-- Part 1: adversarial examples -->
     <p class="has-text-centered" style="margin-bottom: 2rem; color: #555;">
-      Each video contains three shapes: the first is the source point cloud, 
-      the second is the target point cloud, and the third is the adversarial 
+      Each video contains three shapes: the first is the source point cloud,
+      the second is the target point cloud, and the third is the adversarial
       example generated from the source under the guidance of the target.
     </p>
 
@@ -443,6 +403,43 @@
         <p class="video-label">Vase → Bowl</p>
         <video autoplay controls muted loop width="100%">
           <source src="static/videos/video4.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <!-- divider -->
+    <hr style="margin: 3rem 0; border: none; border-top: 1px solid #dfe7f3;">
+
+    <!-- Part 2: cage-guided deformation -->
+    <p class="has-text-centered" style="margin-bottom: 2rem; color: #555;">
+      The following videos visualize how the deformation of the cage induces
+      corresponding changes in the source point cloud, resulting in smooth and
+      globally coherent point deformation.
+    </p>
+
+    <div class="columns is-multiline video-grid">
+      <div class="column is-half has-text-centered">
+        <p class="video-label">Airplane → Rocket (Cage Deformation)</p>
+        <video autoplay controls muted loop width="100%">
+          <source src="static/videos/cage/cage_video1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column is-half has-text-centered">
+        <p class="video-label">Chair → Cap (Cage Deformation)</p>
+        <video autoplay controls muted loop width="100%">
+          <source src="static/videos/cage/cage_video2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column is-half has-text-centered">
+        <p class="video-label">Vase → Bottle (Cage Deformation)</p>
+        <video autoplay controls muted loop width="100%">
+          <source src="static/videos/cage/cage_video3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column is-half has-text-centered">
+        <p class="video-label">Vase → Bowl (Cage Deformation)</p>
+        <video autoplay controls muted loop width="100%">
+          <source src="static/videos/cage/cage_video4.mp4" type="video/mp4">
         </video>
       </div>
     </div>
