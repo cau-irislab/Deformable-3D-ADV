@@ -133,5 +133,28 @@ body {
   font-size: smaller;
 }
 
+.results-carousel {
+  overflow: hidden;
+}
+
+.results-carousel .item {
+  padding: 0.5rem;
+}
+
+.results-carousel video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+}
+
+.results-carousel .slider-navigation-previous,
+.results-carousel .slider-navigation-next {
+  background: rgba(255, 255, 255, 0.92);
+  color: #3273dc;
+  border-radius: 50%;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+}
 
 
